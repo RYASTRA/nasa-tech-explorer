@@ -1,11 +1,20 @@
 """Harvest, merge, staleness bookkeeping, guards, and data/ output."""
 
-from .api import QueryError
+import datetime as _dt
+import json
+import os
+from collections import Counter
+from pathlib import Path
+
+from .api import QueryError, T2Client
 from .config import (
+    DATA_DIR,
+    DATASETS,
     MAX_FAILED_QUERY_RATIO,
     MAX_SKIPPED_ROW_RATIO,
     MIN_KEEP_RATIO,
     MISS_LIMIT,
+    QUERY_TERMS,
 )
 from .models import TechRecord
 from .normalize import row_to_record
@@ -86,3 +95,65 @@ def merge(
             "column map has likely drifted"
         )
     return merged, stats
+
+
+def _write_json(path: Path, payload) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    text = json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False)
+    path.write_text(text + "\n", encoding="utf-8")
+
+
+def load_records(dataset: str, data_dir: Path) -> dict[str, TechRecord]:
+    """Read one dataset's committed snapshot; empty dict when none exists yet."""
+    path = data_dir / f"{dataset}.json"
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    records = [TechRecord.from_dict(d) for d in payload["records"]]
+    return {record.id: record for record in records}
+
+
+def _facet_counts(records: dict[str, TechRecord]) -> dict:
+    categories = Counter(r.category for r in records.values() if r.category)
+    centers = Counter(r.center for r in records.values() if r.center)
+    return {"category": dict(categories), "center": dict(centers)}
+
+
+def run_snapshot(client=None, terms=None, today=None, force=None, data_dir=None) -> dict:
+    """Harvest every dataset, merge, guard, and write data/*.json. Returns the meta dict."""
+    client = client or T2Client()
+    terms = list(terms if terms is not None else QUERY_TERMS)
+    today = today or _dt.date.today().isoformat()
+    force = force if force is not None else os.environ.get("FORCE_SNAPSHOT") == "1"
+    data_dir = data_dir or DATA_DIR
+
+    merged_by_dataset: dict[str, dict[str, TechRecord]] = {}
+    meta_datasets: dict[str, dict] = {}
+    for dataset in DATASETS:
+        previous = load_records(dataset, data_dir)
+        harvested, failed = harvest(dataset, client, terms)
+        check_failed_ratio(failed, len(terms))
+        merged, stats = merge(dataset, previous, harvested, today)
+        check_shrink(dataset, len(previous), stats["new"] + stats["updated"], force)
+        merged_by_dataset[dataset] = merged
+        meta_datasets[dataset] = {
+            "total": len(merged),
+            "failed_queries": failed,
+            "queries": len(terms),
+            **stats,
+        }
+
+    # all guards passed for all datasets -> now (and only now) write
+    for dataset, merged in merged_by_dataset.items():
+        records = sorted(merged.values(), key=lambda r: (r.slug, r.id))
+        _write_json(data_dir / f"{dataset}.json", {"records": [r.to_dict() for r in records]})
+    _write_json(
+        data_dir / "facets.json",
+        {dataset: _facet_counts(merged) for dataset, merged in merged_by_dataset.items()},
+    )
+    meta = {
+        "fetched_at": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),
+        "datasets": meta_datasets,
+    }
+    _write_json(data_dir / "meta.json", meta)
+    return meta
