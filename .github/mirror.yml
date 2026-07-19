@@ -1,0 +1,22 @@
+name: Mirror to GitLab
+
+on: [push, delete]
+
+# Least privilege: the mirror only reads this repo (checkout) and pushes to GitLab
+# via GITLAB_TOKEN, so the GITHUB_TOKEN needs no write scopes. (CodeQL CWE-275)
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Important for mirroring history
+
+      - name: Mirror to GitLab
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/RYASTRA/nasa-tech-explorer.git
