@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASATrussOpt: Software for truss structure optimization considering member and joint strength, buckling, and nested truss configurations — nasa-tech-explorer</title>
+  <meta name="description" content="TrussOpt23 is a research code that is used to develop and test augmentations to existing 2D truss structure optimization algorithms to add considerati">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header>
+  <p><a href="../index.html">← All NASA tech</a></p>
+  <p class="badge badge-software">Software — free catalog</p>
+  <h1>NASATrussOpt: Software for truss structure optimization considering member and joint strength, buckling, and nested truss configurations</h1>
+</header>
+<main>
+  <dl class="meta">
+    <dt>Case number</dt><dd>LAR-20469-1</dd>
+    <dt>NASA center</dt><dd>LARC</dd>
+    <dt>Category</dt><dd>structures and mechanisms</dd>
+    <dt>First seen</dt><dd>2026-07-20</dd>
+  </dl>
+  <p class="abstract">TrussOpt23 is a research code that is used to develop and test augmentations to existing 2D truss structure optimization algorithms to add consideration for stability, joint strength, and dynamic load cases. The end goal are manufacturable truss designs relevant to spacecraft and lunar infrastructure applications. The following paragraphs describe some more about the technical approach. The code was developed primarily by Matthew Yates during his Fall 2023 NIFS internship and is being released to enable continued collaboration with Matthew and his research group at Georgia Tech leading to research publications demonstrating the approach weve developed. We do not anticipate any other external users or engineering applications.In general the approach is an iterative solution to the convex truss optimization problem defined in [1]. The iterations are used to address nonconvex problem aspects. The approach is mostly a unique combination of previously published approaches. The member-adding algorithm described in [2] is used, since it significantly reduces computational expense. Stability is addressed following Tyas [3] and Poulsen [4], where nominal lateral forces and linearized Euler buckling are included.Joint sizing is usually not addressed in truss layout and sizing routines. A uniform arbitrary joint penalty has been introduced to penalize short members, which has the effect of reducing the number of members in the final design, enhancing manufacturability. We adopt a variable joint penalty, based on the loads at the joint. We assume a lap joint configuration and evaluate the length of the overlap using a closed-form solution based on fracture mechanics analysis from Papini [5]. An additional input is added: the fracture toughness of the joint. The fracture mechanics solution leads to an overlap length, which in turns leads to a volume (mass) penalty. The joint volume penalty has a similar influence as previous implementations of joint costs: it tends to rationalize the truss design. In cases where the joint load exceeds the joint capacity for long overlaps, a penalty function is used to prevent infeasible designs. The joint overlaps are updated iteratively until converged.For applications where dynamic loads are important, the mass characteristics of the structure influence the loads. As a result, as the design is updated while searching for a solution, the loads are also changing. We address this scenario for the particular case of a cantilever beam type structure with an end mass subject to base excitation. A lumped mass idealization is used wherein the beam (truss) mass is considered at the tip but with a scaling factor representative of the distribution of mass along the length of the structure. For a uniform cross section, the scaling factor is 0.23. We calculate this factor from the truss layout and sizing using the derivation originally developed by Timoshenko [6]. The scaling factor is updated iteratively until the solution converges.1. M. Gilbert and A. Tyas, Layout optimization of large-scale pin-jointed frames, Engineering Computations, vol. 20, no. 8, pp. 10441064, 2003, doi: 10.1108/02644400310503017.2. L. He, M. Gilbert, and X. Song, A Python script for adaptive layout optimization of trusses, Structural Multidisciplinary Optimization, vol. 60, no. 2, pp. 835847, Aug. 2019, doi: 10.1007/s00158-019-02226-6.3. A. Tyas, M. Gilbert, and T. Pritchard, Practical plastic layout optimization of trusses incorporating stability considerations, Computers &amp; Structures, vol. 84, no. 3, pp. 115126, Jan. 2006, doi: 10.1016/j.compstruc.2005.09.032.4. P. N. Poulsen, J. F. Olesen, and M. Baandrup, Truss optimization applying finite element limit analysis including global and local stability, Structural Multidisciplinary Optimization, vol. 62, no. 1, pp. 4154, Jul. 2020, doi: 10.1007/s00158-019-02468-4.5. M. Papini, G. Fernlund, and J. K. Spelt, The effect of geometry on the fracture of adhesive joints, International Journal of Adhesion and Adhesives, vol. 14, no. 1, Art. no. 1, Jan. 1994, doi: 10.1016/0143-7496(94)90015-9.6. Timoshenko, S. and Young, D.H. (1961) Vibration Problems in Engineering. 3rd Edition, Van Nostrand, New York.</p>
+  <p><a class="cta" href="https://software.nasa.gov/search?q=LAR-20469-1" rel="noopener">Find it in the NASA software catalog ↗</a></p>
+</main>
+<footer>
+  <p>Not affiliated with or endorsed by NASA. Data from the public
+     <a href="https://technology.nasa.gov/api/">NASA T2 API</a>.</p>
+</footer>
+</body>
+</html>

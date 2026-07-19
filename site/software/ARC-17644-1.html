@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PSYCO: A Predicate-based Symbolic Compositional Reasoning environment — nasa-tech-explorer</title>
+  <meta name="description" content="PSYCO: Predicate-based Symbolic Compositional Reasoning (PSYCO), is a software environment that generates precise Java component interfaces in an auto">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header>
+  <p><a href="../index.html">← All NASA tech</a></p>
+  <p class="badge badge-software">Software — free catalog</p>
+  <h1>PSYCO: A Predicate-based Symbolic Compositional Reasoning environment</h1>
+</header>
+<main>
+  <dl class="meta">
+    <dt>Case number</dt><dd>ARC-17644-1</dd>
+    <dt>NASA center</dt><dd>ARC</dd>
+    <dt>Category</dt><dd>data servers processing and handling</dd>
+    <dt>First seen</dt><dd>2026-07-20</dd>
+  </dl>
+  <p class="abstract">PSYCO: Predicate-based Symbolic Compositional Reasoning (PSYCO), is a software environment that generates precise Java component interfaces in an automated fashion. These interfaces are state machines that describe legal sequences of method invocations of a component. Guards on method parameters are included in the automata transitions in order to capture more precisely the interface behavior of the component. The novelty of PSYCO is that it is the first software environment to combine symbolic approaches with automata learning. In particular, it uses a technique named concolic execution to compute guards and active automata learning to compute legal sequences of invocations. Concolic execution is a static analysis that executes a program concretely, while computing symbolic constraints and using them to automatically trigger different program behaviors in order to exhaustively explore the input space of a component. Existing concolic test case generation tools handle only very few data types (especially no float types) and no native calls (e.g., native implementation of trigonometric functions) and thus do not scale to industrial (and in particular aerospace) applications. The concolic execution engine in PSYCO (named JDART) overcomes many of these shortcomings. Active automata learning has been used as a dynamic analysis for generating control models of software components. A learning algorithm triggers a variety of executions on a target system, and based on the outcomes, produces models of the component. These models are automatically refined based on counterexamples that demonstrate imprecisions of each proposed model. Concolic execution and active automata learning target two different types of component invariants: data invariants and control invariants. The combination of both allows the formulation of precise interfaces, integrating control and data aspects of components. Existing interface generation tools usually focus on one of these two aspects and do not combine constraints on inputs and outputs with control models.</p>
+  <p><a class="cta" href="https://software.nasa.gov/search?q=ARC-17644-1" rel="noopener">Find it in the NASA software catalog ↗</a></p>
+</main>
+<footer>
+  <p>Not affiliated with or endorsed by NASA. Data from the public
+     <a href="https://technology.nasa.gov/api/">NASA T2 API</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>lean4-yaml-verified — nasa-tech-explorer</title>
+  <meta name="description" content="lean4-yaml-verified is a formally verified YAML 1.2.2 and JSON parser and schema validator implemented in the Lean 4 interactive theorem prover. It pa">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header>
+  <p><a href="../index.html">← All NASA tech</a></p>
+  <p class="badge badge-software">Software — free catalog</p>
+  <h1>lean4-yaml-verified</h1>
+</header>
+<main>
+  <dl class="meta">
+    <dt>Case number</dt><dd>NPO-53804-1</dd>
+    <dt>NASA center</dt><dd>JPL</dd>
+    <dt>Category</dt><dd>aeronautics</dd>
+    <dt>First seen</dt><dd>2026-07-20</dd>
+  </dl>
+  <p class="abstract">lean4-yaml-verified is a formally verified YAML 1.2.2 and JSON parser and schema validator implemented in the Lean 4 interactive theorem prover. It parses YAML and JSON documents into a typed abstract syntax tree (AST), validates them against schemas specified as Lean 4 type definitions, and provides machine-checked proofs that the parser conforms to the YAML 1.2.2 specification (https://yaml.org/spec/1.2.2/).The software accomplishes three tasks:1. Specification-grade parsing. The parser handles the full YAML 1.2.2 grammar: plain, single-quoted, double-quoted, literal, and folded scalars; flow sequences and mappings (including nested and implicit single-pair entries); block sequences and mappings with indentation tracking; anchors, aliases, and tags; multi-document streams with directives. It achieves 84.9% correctness (353/416) on the community yaml-test-suite, with 100% on the error-rejection and flow stages, and zero failures or timeouts. This represents a significant improvement over a predecessor lean4-yaml project that reached 49% on the same suite (166/337) despite 95% on hand-selected spec examples - a gap that revealed the need for the rigorous, specification-driven approach used here.2. Formally verified correctness. The YAML grammar is encoded as Lean propositions independent of the parser implementation (Grammar.lean, ~315 lines, referencing YAML 1.2.2 section numbers). The parser&#39;s correctness is then stated and proved against this specification. Current proofs include: stream termination (remaining input strictly decreases on each token consumed), character classification correspondence (parser predicates match formal grammar definitions), block scalar assume/guarantee contracts (14 header classification theorems, 10 decidable contract predicates), document boundary contracts (17 theorems covering progress monotonicity, tag handle scope, directive uniqueness), and string property proofs (trim idempotence, fold result classification). The project maintains ~135 proved theorems with zero sorry&#39;s (unfinished proofs) and zero axioms.3. Schema-based data validation. The software extends Lean 4&#39;s existing JSON serialization typeclasses (ToJson, FromJson) with analogous YAML typeclasses (ToYaml, FromYaml), enabling users to define data schemas as Lean 4 structures and automatically derive parsers and validators. Because schemas are Lean types, schema conformance checking is type-checking - the Lean kernel itself guarantees that validated data matches the schema. This applies to both YAML and JSON data, since JSON is a subset of YAML 1.2.2 and both are parsed into the same AST.The software is built on the lean4-parser combinator library (https://github.com/fgdorais/lean4-parser). We contributed upstream improvements, making the library&#39;s fold combinators total, enabling formal proofs about any parser built on the library.</p>
+  <p><a class="cta" href="https://software.nasa.gov/search?q=NPO-53804-1" rel="noopener">Find it in the NASA software catalog ↗</a></p>
+</main>
+<footer>
+  <p>Not affiliated with or endorsed by NASA. Data from the public
+     <a href="https://technology.nasa.gov/api/">NASA T2 API</a>.</p>
+</footer>
+</body>
+</html>

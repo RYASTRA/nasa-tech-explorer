@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>nfer: A Notation and System for Inferring Event Stream Abstractions — nasa-tech-explorer</title>
+  <meta name="description" content="The NFER software provides a rule-based notation and system for labeling event streams. The result of a labeling is a set of intervals: named sections">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header>
+  <p><a href="../index.html">← All NASA tech</a></p>
+  <p class="badge badge-software">Software — free catalog</p>
+  <h1>nfer: A Notation and System for Inferring Event Stream Abstractions</h1>
+</header>
+<main>
+  <dl class="meta">
+    <dt>Case number</dt><dd>NPO-50406-1</dd>
+    <dt>NASA center</dt><dd>JPL</dd>
+    <dt>Category</dt><dd>data and image processing</dd>
+    <dt>First seen</dt><dd>2026-07-20</dd>
+  </dl>
+  <p class="abstract">The NFER software provides a rule-based notation and system for labeling event streams. The result of a labeling is a set of intervals: named sections of the event stream, each including a start time, and end time, and a map holding data selected from the events and sub-intervals making up the interval. Typically intervals are built on top of intervals, forming a hierarchy of abstractions. The result can for example be visualized, and can generally help engineers to better comprehend the structure of an event stream.The NFER system is implemented as an internal Scala DSL.Each interval-generating rule spawns an actor,that subscribes to events and/or sub-intervals, and publishes new intervals in the publish/subscribe architecture.The software can process events online, as theycome down to ground from the spacecraft, as well as eventsproduced at an earlier point in time, and stored in a database.</p>
+  <p><a class="cta" href="https://software.nasa.gov/search?q=NPO-50406-1" rel="noopener">Find it in the NASA software catalog ↗</a></p>
+</main>
+<footer>
+  <p>Not affiliated with or endorsed by NASA. Data from the public
+     <a href="https://technology.nasa.gov/api/">NASA T2 API</a>.</p>
+</footer>
+</body>
+</html>

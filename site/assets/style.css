@@ -1,0 +1,35 @@
+:root {
+  --bg: #ffffff; --fg: #17202a; --muted: #5d6d7e; --line: #d5dbdb;
+  --accent: #0b3d91; /* NASA blue, used as plain color only */
+  --badge-patent: #0b3d91; --badge-patent_issued: #5b2c6f;
+  --badge-software: #145a32; --badge-spinoff: #9c640c;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14181d; --fg: #eaecee; --muted: #aab7b8; --line: #2c3e50;
+          --accent: #7fb3ff; }
+}
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 52rem; padding: 1rem;
+       font: 16px/1.55 system-ui, sans-serif; background: var(--bg); color: var(--fg); }
+a { color: var(--accent); }
+header p { color: var(--muted); }
+#controls { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: 1rem 0; }
+#controls label { position: absolute; left: -9999px; }  /* visually hidden, screen-readable */
+#q { grid-column: 1 / -1; font-size: 1.1rem; padding: .6rem; }
+input, select { background: var(--bg); color: var(--fg);
+                border: 1px solid var(--line); border-radius: .4rem; padding: .45rem; }
+#status { color: var(--muted); }
+#results { list-style: none; padding: 0; }
+#results li { border-top: 1px solid var(--line); padding: .8rem 0; }
+#results h2 { margin: 0 0 .2rem; font-size: 1.05rem; }
+.badge { display: inline-block; font-size: .72rem; color: #fff; border-radius: .3rem;
+         padding: .12rem .45rem; vertical-align: middle; }
+.badge-patent { background: var(--badge-patent); }
+.badge-patent_issued { background: var(--badge-patent_issued); }
+.badge-software { background: var(--badge-software); }
+.badge-spinoff { background: var(--badge-spinoff); }
+.hit-meta { color: var(--muted); font-size: .85rem; }
+.abstract { white-space: pre-line; }
+.cta { font-weight: 600; }
+footer { margin-top: 2rem; border-top: 1px solid var(--line);
+         color: var(--muted); font-size: .85rem; }

@@ -1,0 +1,127 @@
+{
+  "patent": {
+    "category": {
+      "aerospace": 73,
+      "communications": 22,
+      "electrical and electronics": 26,
+      "environment": 25,
+      "health medicine and biotechnology": 33,
+      "information technology and software": 36,
+      "instrumentation": 30,
+      "manufacturing": 42,
+      "materials and coatings": 83,
+      "mechanical and fluid systems": 61,
+      "optics": 26,
+      "power generation and storage": 41,
+      "propulsion": 15,
+      "robotics automation and control": 44,
+      "sensors": 73
+    },
+    "center": {
+      "ARC": 93,
+      "DFRC": 15,
+      "FAA": 12,
+      "GRC": 104,
+      "GSFC": 82,
+      "JPL": 2,
+      "JSC": 83,
+      "KSC": 34,
+      "LARC": 152,
+      "MSFC": 48,
+      "SSC": 5
+    }
+  },
+  "patent_issued": {
+    "category": {
+      "aerospace": 49,
+      "communications": 20,
+      "electrical and electronics": 23,
+      "environment": 20,
+      "health medicine and biotechnology": 27,
+      "information technology and software": 28,
+      "instrumentation": 28,
+      "manufacturing": 34,
+      "materials and coatings": 71,
+      "mechanical and fluid systems": 49,
+      "optics": 18,
+      "power generation and storage": 23,
+      "propulsion": 12,
+      "robotics automation and control": 38,
+      "sensors": 64
+    },
+    "center": {
+      "ARC": 70,
+      "DFRC": 14,
+      "GRC": 81,
+      "GSFC": 74,
+      "JPL": 2,
+      "JSC": 61,
+      "KSC": 31,
+      "LARC": 131,
+      "MSFC": 37,
+      "SSC": 3
+    }
+  },
+  "software": {
+    "category": {
+      "aeronautics": 154,
+      "autonomous systems": 56,
+      "business systems and project management": 27,
+      "crew and life support": 16,
+      "data and image processing": 423,
+      "data servers processing and handling": 77,
+      "design and integration tools": 157,
+      "electronics and electrical power": 16,
+      "environmental science earth air space exoplanet": 106,
+      "materials and processes": 22,
+      "operations": 65,
+      "propulsion": 43,
+      "structures and mechanisms": 20,
+      "system testing": 67,
+      "vehicle management space air ground": 49
+    },
+    "center": {
+      "ARC": 172,
+      "DFRC": 13,
+      "GRC": 172,
+      "GSFC": 209,
+      "HDQS": 1,
+      "JPL": 362,
+      "JSC": 70,
+      "KSC": 27,
+      "LARC": 187,
+      "MSFC": 72,
+      "SSC": 13
+    }
+  },
+  "spinoff": {
+    "category": {
+      "computer technology": 341,
+      "consumer home recreation": 14,
+      "consumer/home/recreation": 344,
+      "environment and resource management": 420,
+      "health and medicine": 338,
+      "industrial productivity": 270,
+      "industrial productivity manufacturing technology": 15,
+      "industrial productivity/manufacturing technology": 195,
+      "ip": 1,
+      "ps": 1,
+      "public safety": 261,
+      "t": 1,
+      "transportation": 234
+    },
+    "center": {
+      "ARC": 270,
+      "DFRC": 33,
+      "GRC": 242,
+      "GSFC": 274,
+      "HDQS": 227,
+      "JPL": 256,
+      "JSC": 374,
+      "KSC": 174,
+      "LARC": 284,
+      "MSFC": 250,
+      "SSC": 83
+    }
+  }
+}

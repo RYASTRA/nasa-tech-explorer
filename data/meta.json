@@ -1,0 +1,45 @@
+{
+  "datasets": {
+    "patent": {
+      "dropped": 0,
+      "failed_queries": 0,
+      "missed": 0,
+      "new": 0,
+      "queries": 271,
+      "skipped_rows": 0,
+      "total": 630,
+      "updated": 630
+    },
+    "patent_issued": {
+      "dropped": 0,
+      "failed_queries": 0,
+      "missed": 0,
+      "new": 1,
+      "queries": 271,
+      "skipped_rows": 0,
+      "total": 504,
+      "updated": 503
+    },
+    "software": {
+      "dropped": 0,
+      "failed_queries": 0,
+      "missed": 0,
+      "new": 0,
+      "queries": 271,
+      "skipped_rows": 0,
+      "total": 1298,
+      "updated": 1298
+    },
+    "spinoff": {
+      "dropped": 0,
+      "failed_queries": 0,
+      "missed": 0,
+      "new": 0,
+      "queries": 271,
+      "skipped_rows": 0,
+      "total": 2467,
+      "updated": 2467
+    }
+  },
+  "fetched_at": "2026-07-19T23:00:00+00:00"
+}

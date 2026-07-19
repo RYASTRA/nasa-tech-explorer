@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ryastra.github.io/nasa-tech-explorer/sitemap.xml

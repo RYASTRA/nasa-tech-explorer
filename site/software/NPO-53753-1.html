@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>doc-verification-bridge: Theorem classification for specification-implementation refinement — nasa-tech-explorer</title>
+  <meta name="description" content="Doc-verification-bridge is a semantic documentation and verification coverage tool for Lean 4 that automatically classifies theorems according to thei">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header>
+  <p><a href="../index.html">← All NASA tech</a></p>
+  <p class="badge badge-software">Software — free catalog</p>
+  <h1>doc-verification-bridge: Theorem classification for specification-implementation refinement</h1>
+</header>
+<main>
+  <dl class="meta">
+    <dt>Case number</dt><dd>NPO-53753-1</dd>
+    <dt>NASA center</dt><dd>JPL</dd>
+    <dt>Category</dt><dd>aeronautics</dd>
+    <dt>First seen</dt><dd>2026-07-20</dd>
+  </dl>
+  <p class="abstract">Doc-verification-bridge is a semantic documentation and verification coverage tool for Lean 4 that automatically classifies theorems according to their role in specification-implementation refinement. The tool addresses a critical gap in verified software development: while proof assistants guarantee that individual theorems are correct, they provide no systematic way to assess whether a specification is completely verified or to navigate the relationships between mathematical specifications and computational implementations. The software implements a Four-Category Ontology inspired by E.J. Lowe&#39;s metaphysical framework, organizing declarations into Mathematical Abstractions, Computational Datatypes, Mathematical Definitions, and Computational Operations. This categorization directly maps to the concerns of specification-implementation correspondence: proving that computable Bool-returning functions correctly decide Prop-valued mathematical predicates. The core contribution is automatic inference of semantic classification from theorem types. By analyzing the structure of hypotheses and conclusions, the tool identifies what each theorem assumes, proves, and validates-distinguishing bridging theorems (which connect specifications to implementations) from mathematical properties (internal to the specification layer) and computational properties (internal to the implementation layer). Bridging theorems are further classified by directionality: soundness proofs show implementations are conservative; completeness proofs show implementations are exhaustive. Doc-verification-bridge operates in two modes: automatic mode requires no source modifications and is suitable for analyzing existing codebases; manual mode provides precise control through Lean 4 attributes for production documentation. The software generates MkDocs-compatible documentation integrated with doc-gen4 API reference, enabling unified navigation between &#34;what does this function do?&#34; and &#34;how do we know it&#39;s correct?&#34; The tool is designed for safety-critical domains such as autonomous systems, where systematic verification coverage tracking is essential for regulatory compliance and assurance argumentation.</p>
+  <p><a class="cta" href="https://software.nasa.gov/search?q=NPO-53753-1" rel="noopener">Find it in the NASA software catalog ↗</a></p>
+</main>
+<footer>
+  <p>Not affiliated with or endorsed by NASA. Data from the public
+     <a href="https://technology.nasa.gov/api/">NASA T2 API</a>.</p>
+</footer>
+</body>
+</html>

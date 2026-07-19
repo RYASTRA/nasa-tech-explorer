@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Algorithm for Automated Sargassum Detection for Landsat-8 OLI Imagery — nasa-tech-explorer</title>
+  <meta name="description" content="Methodology and software were implemented to automatically detect Sargassum spp., a floating aquatic seaweed, in 30-meter LANDSAT-8 Operational Land I">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header>
+  <p><a href="../index.html">← All NASA tech</a></p>
+  <p class="badge badge-software">Software — free catalog</p>
+  <h1>Algorithm for Automated Sargassum Detection for Landsat-8 OLI Imagery</h1>
+</header>
+<main>
+  <dl class="meta">
+    <dt>Case number</dt><dd>SSC-00505</dd>
+    <dt>NASA center</dt><dd>SSC</dd>
+    <dt>Category</dt><dd>environmental science earth air space exoplanet</dd>
+    <dt>First seen</dt><dd>2026-07-20</dd>
+  </dl>
+  <p class="abstract">Methodology and software were implemented to automatically detect Sargassum spp., a floating aquatic seaweed, in 30-meter LANDSAT-8 Operational Land Imager (OLI) imagery. This Sargassum spp. detection is an extended form of Hus approach to derive a floating algae index (FAI), which is defined as the difference between the reflectance at the near infrared band (NIR, 859 nm) (vegetation red edge) and the linear baseline between the red band (645 nm) and short-wave infrared band (SWIR, 1240 or 1640 nm). The Hus algorithm was developed for the Moderate Resolution Imaging Spectroradiometer (MODIS) data, but we extended it for use with the OLI bands (655, 865, and 1609 nm), which are comparable to MODIS bands (645, 859, and 1640 nm). We also developed a high resolution true color product to mask cloud pixels in the OLI scene by applying a threshold to top of the atmosphere (TOA) radiances in the red (655 nm), green (561 nm), and blue (443 nm) wavelengths, and software to remove false positive identifications of Sargassum spp in the imagery. Hus algorithm derives a FAI for each Sargassum spp identified pixel. Our algorithm only flags the presence of Sargassum spp in an OLI pixel by indicating that any pixel with a FAI &gt; 0.0 is a Sargassum spp pixel. Additionally, our software geo-locates the flagged Sargassum spp pixels identified in the OLI imagery into the U.S. Navy Global HYCOM model grid. One element of the model grid used, covers an area 0.125degree of latitude by 0.125 degree of longitude. An OLI pixel is only 30m by 30 m. To resolve the differences in spatial coverage, a scheme was developed in which the total number of Landsat OLI pixels within a grid element of the model are counted, and if more than 1% of those pixels are pixels flagged as containing Sargassum spp, then the geographical location within the model is annotated. The end product is an ASCII file that contains latitude, longitude pairs that are used as input for the next stage in the processing stream, which is a clustering algorithm or a model initialization parameter. The numerical model grid must be in p lace before the geolocation takes place.The focus of this application is the automatic identification of Sargassum spp. in visible data of the Operational Land Imager (OLI) on board LANDSAT-8 in the Gulf of Mexico. The identification is followed up by a routine to map their location inside the Hybrid Coordinate Ocean Model MODEL (HYCOM) surface grid. This methodology, developed by the Naval Research Laboratory for the NASA/Applied Science and Technology Project (ASTPO), is applicable worldwide requiring only minor changes in the geolocation of the area of interest.</p>
+  <p><a class="cta" href="https://software.nasa.gov/search?q=SSC-00505" rel="noopener">Find it in the NASA software catalog ↗</a></p>
+</main>
+<footer>
+  <p>Not affiliated with or endorsed by NASA. Data from the public
+     <a href="https://technology.nasa.gov/api/">NASA T2 API</a>.</p>
+</footer>
+</body>
+</html>
