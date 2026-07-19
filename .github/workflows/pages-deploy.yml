@@ -1,0 +1,16 @@
+name: pages-deploy
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "assets/**"
+      - "templates/**"
+      - "src/**"
+      - "data/**"
+permissions:
+  pages: write
+  id-token: write
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy.yml
