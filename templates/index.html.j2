@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>nasa-tech-explorer — NASA patents, free software &amp; spinoffs, searchable</title>
+  <meta name="description" content="Search NASA's licensable patents, free software catalog, and spinoff stories.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header>
+  <h1>🧰 nasa-tech-explorer</h1>
+  <p>What NASA will license or give away — patents, free software, spinoffs — snapshotted
+     nightly, searched in your browser.</p>
+</header>
+<main>
+  <form id="controls" role="search" onsubmit="return false">
+    <label for="q">Search</label>
+    <input id="q" type="search" placeholder="laser, propulsion, LEW-TOPS-168…" autofocus>
+    <label for="f-type">Type</label>
+    <select id="f-type"><option value="">All types</option></select>
+    <label for="f-cat">Category</label>
+    <select id="f-cat"><option value="">All categories</option></select>
+    <label for="f-center">Center</label>
+    <select id="f-center"><option value="">All centers</option></select>
+  </form>
+  <p id="status" aria-live="polite">Loading catalog…</p>
+  <ol id="results"></ol>
+  <noscript><p>This explorer needs JavaScript. The full catalog is also listed in the
+    <a href="sitemap.xml">sitemap</a>.</p></noscript>
+</main>
+<footer>
+  <p>Snapshot: {{ fetched_at }} · {{ total_records }} records ·
+     <a href="https://github.com/RYASTRA/nasa-tech-explorer">source &amp; data</a> · MIT</p>
+  <p>Not affiliated with or endorsed by NASA. Data from the public
+     <a href="https://technology.nasa.gov/api/">NASA T2 API</a>.</p>
+</footer>
+<script src="assets/minisearch.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
