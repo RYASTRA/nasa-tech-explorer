@@ -1,5 +1,8 @@
 # 🧰 nasa-tech-explorer — NASA's tech, actually searchable
 
+[![ci](https://github.com/RYASTRA/nasa-tech-explorer/actions/workflows/ci.yml/badge.svg)](https://github.com/RYASTRA/nasa-tech-explorer/actions/workflows/ci.yml)
+[![snapshot-nightly](https://github.com/RYASTRA/nasa-tech-explorer/actions/workflows/snapshot-nightly.yml/badge.svg)](https://github.com/RYASTRA/nasa-tech-explorer/actions/workflows/snapshot-nightly.yml)
+
 Discover what NASA will **license or give away**: patents available for licensing,
 the free software catalog, and spinoff stories — in one fast, static explorer.
 
@@ -8,7 +11,7 @@ full Tech Transfer catalog into committed JSON; GitHub Pages serves a client-sid
 search UI over it. No servers, no backend, no API keys in the browser — the data
 plane is Actions, the serving is Pages, the lineage is git history.
 
-> **Status: 🚧 pre-development (design phase) — founded 2026-07-13.**
+> **Status: 🚧 v1 in development — snapshot pipeline and explorer under construction.**
 
 ## The unmet need
 
@@ -22,8 +25,8 @@ T2 office's own mission.
 ## What it will do
 
 1. **Nightly snapshot** — an Actions job pulls the full T2 catalog (patents /
-   software / spinoffs) through the TechTransfer API into committed JSON
-   (`NASA_API_KEY` lives only in an Actions secret).
+   software / spinoffs) through the TechTransfer API into committed JSON —
+   no API key needed (see Data source below).
 2. **Static explorer** — GitHub Pages site with client-side fuzzy search,
    category and NASA-center filters, and plain-English detail pages deep-linking
    to [technology.nasa.gov](https://technology.nasa.gov) and
@@ -38,11 +41,21 @@ T2 office's own mission.
 - **Developers** who'd use NASA code today if they could find it
 - **The curious** — spinoff stories of NASA tech in everyday life
 
+## Run it locally
+
+    python3 -m venv .venv && source .venv/bin/activate
+    pip install -e ".[dev]"
+    python -m t2_explorer all        # snapshot the catalog, then build site/
+    python -m http.server 8123 --directory site
+
 ## Data source
 
-NASA **TechTransfer API** (`patent`, `patent_issued`, `software`, `spinoff`) via
-`api.nasa.gov`. Requires `NASA_API_KEY` ([free](https://api.nasa.gov/)), supplied
-as an Actions secret — never shipped to the browser.
+NASA **TechTransfer (T2) API**, queried directly at
+`technology.nasa.gov/api/api/{patent|patent_issued|software|spinoff}/{term}` — the
+documented public API behind technology.nasa.gov. **No API key required.** (The old
+`api.nasa.gov/techtransfer` passthrough now just redirects there, so this repo does
+not use it or any `NASA_API_KEY`.) The nightly job throttles to ≤3 requests/second
+and identifies itself with a User-Agent pointing at this repo.
 
 ## The RYASTRA fleet
 

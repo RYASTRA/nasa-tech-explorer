@@ -1,21 +1,18 @@
 # Security Policy
 
+## Scope
+
+This project is a static website plus a scheduled GitHub Actions pipeline. It has no
+runtime backend, stores no user data, and uses no API keys. The attack surface is the
+Actions workflows, the published static site, and the data pipeline's handling of
+untrusted API text (which is HTML-escaped at render time).
+
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+Only the latest state of `main` (and the site deployed from it) is supported.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Please use GitHub's private vulnerability reporting on this repository
+(Security → "Report a vulnerability"). You can expect an acknowledgement within a week.
+Please do not open public issues for suspected vulnerabilities.
