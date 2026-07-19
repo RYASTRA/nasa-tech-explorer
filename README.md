@@ -11,7 +11,8 @@ full Tech Transfer catalog into committed JSON; GitHub Pages serves a client-sid
 search UI over it. No servers, no backend, no API keys in the browser — the data
 plane is Actions, the serving is Pages, the lineage is git history.
 
-> **Status: 🚧 v1 in development — snapshot pipeline and explorer under construction.**
+> **Status: ✅ live — 4,899 records, refreshed nightly.**
+> **Quick look:** <https://ryastra.github.io/nasa-tech-explorer/>
 
 ## The unmet need
 
