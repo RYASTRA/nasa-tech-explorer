@@ -41,19 +41,32 @@ def official_link(record: TechRecord) -> str:
     return "https://spinoff.nasa.gov/"
 
 
-def _write_search_index(records: list[TechRecord], site_dir: Path) -> None:
+def _resolve_slugs(records: list[TechRecord]) -> list[tuple[TechRecord, str]]:
+    """Give every record a unique per-dataset slug (two entries can share a case number)."""
+    taken: set[tuple[str, str]] = set()
+    resolved = []
+    for record in records:
+        slug = record.slug
+        if (record.dataset, slug) in taken:
+            slug = f"{record.slug}--{record.id[:8]}"
+        taken.add((record.dataset, slug))
+        resolved.append((record, slug))
+    return resolved
+
+
+def _write_search_index(resolved: list[tuple[TechRecord, str]], site_dir: Path) -> None:
     for abstract_chars in (INDEX_ABSTRACT_CHARS, 200, 120):
         rows = [
             [
                 r.dataset,
-                r.slug,
+                slug,
                 r.case_number,
                 r.title,
                 r.category,
                 r.center,
                 r.abstract[:abstract_chars],
             ]
-            for r in records
+            for r, slug in resolved
         ]
         raw = json.dumps({"rows": rows}, ensure_ascii=False).encode("utf-8")
         if len(gzip.compress(raw)) <= INDEX_GZIP_BUDGET:
@@ -77,12 +90,13 @@ def build_site(data_dir=None, site_dir=None, assets_dir=None, templates_dir=None
     all_records: list[TechRecord] = []
     for dataset in DATASETS:
         all_records.extend(load_records(dataset, data_dir).values())
-    all_records.sort(key=lambda r: (r.dataset, r.slug))
+    all_records.sort(key=lambda r: (r.dataset, r.slug, r.id))
+    resolved = _resolve_slugs(all_records)
 
     detail_template = env.get_template("detail.html.j2")
     pages: list[str] = []
-    for record in all_records:
-        rel = f"{URL_SEGMENT[record.dataset]}/{record.slug}.html"
+    for record, slug in resolved:
+        rel = f"{URL_SEGMENT[record.dataset]}/{slug}.html"
         out = site_dir / rel
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(
@@ -113,4 +127,4 @@ def build_site(data_dir=None, site_dir=None, assets_dir=None, templates_dir=None
     )
     if assets_dir.is_dir():
         shutil.copytree(assets_dir, site_dir / "assets", dirs_exist_ok=True)
-    _write_search_index(all_records, site_dir)
+    _write_search_index(resolved, site_dir)
