@@ -14,11 +14,11 @@
       "dropped": 0,
       "failed_queries": 0,
       "missed": 0,
-      "new": 1,
+      "new": 0,
       "queries": 271,
       "skipped_rows": 0,
       "total": 504,
-      "updated": 503
+      "updated": 504
     },
     "software": {
       "dropped": 0,
@@ -41,5 +41,5 @@
       "updated": 2467
     }
   },
-  "fetched_at": "2026-07-19T23:00:00+00:00"
+  "fetched_at": "2026-07-20T08:25:36+00:00"
 }
