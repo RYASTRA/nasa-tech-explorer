@@ -137,8 +137,9 @@ def build_status(meta: dict, records: list[TechRecord]) -> dict:
     """The Observatory status contract (schema 1) for this site.
 
     Small, stable, display-ready — the NASA Observatory renders these strings
-    verbatim (headline <= 120 chars, <= 5 items, item text <= 140 chars). Spec:
-    https://github.com/RYASTRA/nasa-observatory/blob/main/docs/superpowers/specs/2026-07-22-nasa-observatory-design.md
+    verbatim (headline <= 120 chars, <= 5 items, item text <= 140 chars). The
+    contract is specified in the nasa-observatory repo:
+    docs/superpowers/specs/2026-07-22-nasa-observatory-design.md
     updated_utc is the SNAPSHOT's timestamp, not build time: a push-triggered
     redeploy rebuilds this file without refreshing data and must not look fresh.
     """
