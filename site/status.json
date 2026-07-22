@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "project": "nasa-tech-explorer",
+ "title": "T2 Tech-Transfer Explorer",
+ "site": "https://ryastra.github.io/nasa-tech-explorer/",
+ "updated_utc": "2026-07-22T07:50:16Z",
+ "fresh_for_hours": 36,
+ "ok": true,
+ "headline": "4,903 records mirrored \u2014 1,302 software packages",
+ "metrics": [
+  {
+   "label": "Software",
+   "value": "1,302"
+  },
+  {
+   "label": "Patents",
+   "value": "1,134"
+  },
+  {
+   "label": "Spinoffs",
+   "value": "2,467"
+  },
+  {
+   "label": "New last snapshot",
+   "value": "4"
+  }
+ ],
+ "items": [
+  {
+   "when_utc": "2026-07-22",
+   "text": "mux (NPO-53831-1) \u2014 JPL",
+   "url": "https://software.nasa.gov/search?q=NPO-53831-1"
+  },
+  {
+   "when_utc": "2026-07-22",
+   "text": "GRACE missions SDS processing and Open Science Application recipes (NPO-53803-1) \u2014 JPL",
+   "url": "https://software.nasa.gov/search?q=NPO-53803-1"
+  },
+  {
+   "when_utc": "2026-07-22",
+   "text": "MIDAS : MoM Integral-equation Decomposition for Arbitrarily-shaped Scatterers (NPO-52001-1) \u2014 JPL",
+   "url": "https://software.nasa.gov/search?q=NPO-52001-1"
+  },
+  {
+   "when_utc": "2026-07-22",
+   "text": "Metric Informed Mesh Improvement Capability (MIMIC) (ARC-19045-1) \u2014 ARC",
+   "url": "https://software.nasa.gov/search?q=ARC-19045-1"
+  },
+  {
+   "when_utc": "2026-07-20",
+   "text": "NDAS ( NASA Data Acquisition System ) (SSC-00592) \u2014 SSC",
+   "url": "https://software.nasa.gov/search?q=SSC-00592"
+  }
+ ]
+}

@@ -3,31 +3,31 @@
     "patent": {
       "dropped": 0,
       "failed_queries": 0,
-      "missed": 0,
+      "missed": 1,
       "new": 0,
       "queries": 271,
       "skipped_rows": 0,
       "total": 630,
-      "updated": 630
+      "updated": 629
     },
     "patent_issued": {
       "dropped": 0,
       "failed_queries": 0,
-      "missed": 0,
+      "missed": 1,
       "new": 0,
       "queries": 271,
       "skipped_rows": 0,
       "total": 504,
-      "updated": 504
+      "updated": 503
     },
     "software": {
       "dropped": 0,
       "failed_queries": 0,
       "missed": 0,
-      "new": 0,
+      "new": 4,
       "queries": 271,
       "skipped_rows": 0,
-      "total": 1298,
+      "total": 1302,
       "updated": 1298
     },
     "spinoff": {
@@ -41,5 +41,5 @@
       "updated": 2467
     }
   },
-  "fetched_at": "2026-07-21T07:50:09+00:00"
+  "fetched_at": "2026-07-22T07:50:16+00:00"
 }
