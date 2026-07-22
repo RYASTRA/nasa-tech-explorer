@@ -174,9 +174,14 @@ def build_status(meta: dict, records: list[TechRecord]) -> dict:
         "items": [
             {
                 "when_utc": r.first_seen,
-                "text": f"{r.title} ({r.case_number}) — {r.center}"[:140],
+                "text": _clip(f"{r.title} ({r.case_number}) — {r.center}"),
                 "url": official_link(r),
             }
             for r in newest_software
         ],
     }
+
+
+def _clip(text: str, limit: int = 140) -> str:
+    """Truncate to the contract's item bound with an ellipsis, never mid-slice."""
+    return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"

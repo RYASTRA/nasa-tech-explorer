@@ -76,6 +76,10 @@ def test_build_status_envelope_ordering_and_normalized_timestamp():
     assert all(len(i["text"]) <= 140 for i in doc["items"])
     assert len(doc["headline"]) <= 120
 
+    long = build_status(_meta(), [_software("SW-LONG", "2026-07-16", title="T" * 200)])
+    assert long["items"][0]["text"].endswith("…")
+    assert len(long["items"][0]["text"]) <= 140
+
 
 def test_failed_queries_flip_ok():
     assert build_status(_meta(failed=1), [])["ok"] is False
