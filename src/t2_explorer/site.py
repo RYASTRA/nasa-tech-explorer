@@ -161,9 +161,15 @@ def build_status(meta: dict, records: list[TechRecord]) -> dict:
         "headline": f"{total:,} records mirrored — {software_total:,} software packages"[:120],
         "metrics": [
             {"label": "Software", "value": f"{software_total:,}"},
-            {"label": "Patents", "value": f"{datasets['patent']['total'] + datasets['patent_issued']['total']:,}"},
+            {
+                "label": "Patents",
+                "value": f"{datasets['patent']['total'] + datasets['patent_issued']['total']:,}",
+            },
             {"label": "Spinoffs", "value": f"{datasets['spinoff']['total']:,}"},
-            {"label": "New last snapshot", "value": f"{sum(d['new'] for d in datasets.values()):,}"},
+            {
+                "label": "New last snapshot",
+                "value": f"{sum(d['new'] for d in datasets.values()):,}",
+            },
         ],
         "items": [
             {

@@ -29,7 +29,9 @@ def _meta(*, failed: int = 0) -> dict:
     counts = {"total": 10, "new": 2, "failed_queries": failed}
     return {
         "fetched_at": "2026-07-21T07:50:09+00:00",
-        "datasets": {name: dict(counts) for name in ("patent", "patent_issued", "software", "spinoff")},
+        "datasets": {
+            name: dict(counts) for name in ("patent", "patent_issued", "software", "spinoff")
+        },
     }
 
 
@@ -39,9 +41,19 @@ def test_build_status_envelope_ordering_and_normalized_timestamp():
         _software("SW-NEWEST", "2026-07-15"),
         _software("SW-MID", "2026-07-10"),
         TechRecord(  # patents never appear in the "newest software" items
-            dataset="patent", id="b" * 24, case_number="PAT-1", title="P", abstract="x",
-            category="c", center="GRC", url="", slug="PAT-1", raw=[],
-            first_seen="2026-07-20", last_seen="2026-07-20", miss_count=0,
+            dataset="patent",
+            id="b" * 24,
+            case_number="PAT-1",
+            title="P",
+            abstract="x",
+            category="c",
+            center="GRC",
+            url="",
+            slug="PAT-1",
+            raw=[],
+            first_seen="2026-07-20",
+            last_seen="2026-07-20",
+            miss_count=0,
         ),
     ]
     doc = build_status(_meta(), records)
@@ -74,10 +86,28 @@ def test_build_site_writes_status_json(tmp_path):
         def fetch(self, dataset, term):
             if dataset != "software":
                 return []
-            return [["c" * 24, "MSC-1", "Nav Tool", "abstract", "", "cat", "", "", "", "JSC", "", "", 1.0]]
+            return [
+                [
+                    "c" * 24,
+                    "MSC-1",
+                    "Nav Tool",
+                    "abstract",
+                    "",
+                    "cat",
+                    "",
+                    "",
+                    "",
+                    "JSC",
+                    "",
+                    "",
+                    1.0,
+                ]
+            ]
 
     data_dir, site_dir = tmp_path / "data", tmp_path / "site"
-    run_snapshot(client=OneSoftware(), terms=["x"], today="2026-07-19", force=False, data_dir=data_dir)
+    run_snapshot(
+        client=OneSoftware(), terms=["x"], today="2026-07-19", force=False, data_dir=data_dir
+    )
     build_site(data_dir=data_dir, site_dir=site_dir)
 
     doc = json.loads((site_dir / "status.json").read_text(encoding="utf-8"))
