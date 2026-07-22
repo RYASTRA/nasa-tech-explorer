@@ -128,3 +128,49 @@ def build_site(data_dir=None, site_dir=None, assets_dir=None, templates_dir=None
     if assets_dir.is_dir():
         shutil.copytree(assets_dir, site_dir / "assets", dirs_exist_ok=True)
     _write_search_index(resolved, site_dir)
+    (site_dir / "status.json").write_text(
+        json.dumps(build_status(meta, all_records), indent=1) + "\n", encoding="utf-8"
+    )
+
+
+def build_status(meta: dict, records: list[TechRecord]) -> dict:
+    """The Observatory status contract (schema 1) for this site.
+
+    Small, stable, display-ready — the NASA Observatory renders these strings
+    verbatim (headline <= 120 chars, <= 5 items, item text <= 140 chars). Spec:
+    https://github.com/RYASTRA/nasa-observatory/blob/main/docs/superpowers/specs/2026-07-22-nasa-observatory-design.md
+    updated_utc is the SNAPSHOT's timestamp, not build time: a push-triggered
+    redeploy rebuilds this file without refreshing data and must not look fresh.
+    """
+    datasets = meta["datasets"]
+    total = sum(d["total"] for d in datasets.values())
+    software_total = datasets["software"]["total"]
+    newest_software = sorted(
+        (r for r in records if r.dataset == "software"),
+        key=lambda r: (r.first_seen, r.case_number),
+        reverse=True,
+    )[:5]
+    return {
+        "schema": 1,
+        "project": "nasa-tech-explorer",
+        "title": "T2 Tech-Transfer Explorer",
+        "site": "https://ryastra.github.io/nasa-tech-explorer/",
+        "updated_utc": meta["fetched_at"].replace("+00:00", "Z"),
+        "fresh_for_hours": 36,
+        "ok": all(d["failed_queries"] == 0 for d in datasets.values()),
+        "headline": f"{total:,} records mirrored — {software_total:,} software packages"[:120],
+        "metrics": [
+            {"label": "Software", "value": f"{software_total:,}"},
+            {"label": "Patents", "value": f"{datasets['patent']['total'] + datasets['patent_issued']['total']:,}"},
+            {"label": "Spinoffs", "value": f"{datasets['spinoff']['total']:,}"},
+            {"label": "New last snapshot", "value": f"{sum(d['new'] for d in datasets.values()):,}"},
+        ],
+        "items": [
+            {
+                "when_utc": r.first_seen,
+                "text": f"{r.title} ({r.case_number}) — {r.center}"[:140],
+                "url": official_link(r),
+            }
+            for r in newest_software
+        ],
+    }
