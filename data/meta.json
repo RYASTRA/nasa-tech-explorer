@@ -24,11 +24,11 @@
       "dropped": 0,
       "failed_queries": 0,
       "missed": 0,
-      "new": 4,
+      "new": 0,
       "queries": 271,
       "skipped_rows": 0,
       "total": 1302,
-      "updated": 1298
+      "updated": 1302
     },
     "spinoff": {
       "dropped": 0,
@@ -41,5 +41,5 @@
       "updated": 2467
     }
   },
-  "fetched_at": "2026-07-22T07:50:16+00:00"
+  "fetched_at": "2026-07-23T07:51:51+00:00"
 }

@@ -3,7 +3,7 @@
  "project": "nasa-tech-explorer",
  "title": "T2 Tech-Transfer Explorer",
  "site": "https://ryastra.github.io/nasa-tech-explorer/",
- "updated_utc": "2026-07-22T07:50:16Z",
+ "updated_utc": "2026-07-23T07:51:51Z",
  "fresh_for_hours": 36,
  "ok": true,
  "headline": "4,903 records mirrored \u2014 1,302 software packages",
@@ -22,7 +22,7 @@
   },
   {
    "label": "New last snapshot",
-   "value": "4"
+   "value": "0"
   }
  ],
  "items": [
