@@ -63,10 +63,12 @@ and identifies itself with a User-Agent pointing at this repo.
 | Repo | What it is |
 |---|---|
 | [nasa-defense](https://github.com/RYASTRA/nasa-defense) | Planetary-defense watch (the original watcher engine) |
+| [nasa-mcp](https://github.com/RYASTRA/nasa-mcp) | All 16 NASA public APIs as an MCP server (R&D layer) |
+| [nasa-new-worlds](https://github.com/RYASTRA/nasa-new-worlds) | New-worlds watch — exoplanet confirmations |
+| [nasa-observatory](https://github.com/RYASTRA/nasa-observatory) | Fleet dashboard — one tile per watcher |
+| [nasa-space-biology](https://github.com/RYASTRA/nasa-space-biology) | Faceted explorer for OSDR space-biology studies |
 | [nasa-space-weather](https://github.com/RYASTRA/nasa-space-weather) | Space-weather watch |
 | **nasa-tech-explorer** | NASA patents, free software & spinoffs — searchable *(this repo)* |
-| [nasa-space-biology](https://github.com/RYASTRA/nasa-space-biology) | Faceted explorer for OSDR space-biology studies |
-| [nasa-mcp](https://github.com/RYASTRA/nasa-mcp) | All 16 NASA public APIs as an MCP server (R&D layer) |
 
 ## License
 
