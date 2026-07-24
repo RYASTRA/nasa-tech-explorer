@@ -3,18 +3,18 @@
  "project": "nasa-tech-explorer",
  "title": "T2 Tech-Transfer Explorer",
  "site": "https://ryastra.github.io/nasa-tech-explorer/",
- "updated_utc": "2026-07-23T07:51:51Z",
+ "updated_utc": "2026-07-24T07:49:06Z",
  "fresh_for_hours": 36,
  "ok": true,
- "headline": "4,903 records mirrored \u2014 1,302 software packages",
+ "headline": "4,905 records mirrored \u2014 1,303 software packages",
  "metrics": [
   {
    "label": "Software",
-   "value": "1,302"
+   "value": "1,303"
   },
   {
    "label": "Patents",
-   "value": "1,134"
+   "value": "1,135"
   },
   {
    "label": "Spinoffs",
@@ -22,10 +22,15 @@
   },
   {
    "label": "New last snapshot",
-   "value": "0"
+   "value": "2"
   }
  ],
  "items": [
+  {
+   "when_utc": "2026-07-24",
+   "text": "Dispatcher - A tool for launching and monitoring health status of ROS2 nodes (NPO-53075-1) \u2014 JPL",
+   "url": "https://software.nasa.gov/search?q=NPO-53075-1"
+  },
   {
    "when_utc": "2026-07-22",
    "text": "mux (NPO-53831-1) \u2014 JPL",
@@ -45,11 +50,6 @@
    "when_utc": "2026-07-22",
    "text": "Metric Informed Mesh Improvement Capability (MIMIC) (ARC-19045-1) \u2014 ARC",
    "url": "https://software.nasa.gov/search?q=ARC-19045-1"
-  },
-  {
-   "when_utc": "2026-07-20",
-   "text": "NDAS ( NASA Data Acquisition System ) (SSC-00592) \u2014 SSC",
-   "url": "https://software.nasa.gov/search?q=SSC-00592"
   }
  ]
 }
